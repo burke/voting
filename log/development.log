@@ -1,0 +1,1013 @@
+
+
+Processing VotesController#index (for 127.0.0.1 at 2009-04-01 15:18:34) [GET]
+  [4;36;1mVote Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: votes: SELECT * FROM "votes" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: votes: SELECT * FROM "votes" ):
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract_adapter.rb:212:in `log'
+  activerecord (2.3.0) lib/active_record/connection_adapters/sqlite_adapter.rb:132:in `execute'
+  activerecord (2.3.0) lib/active_record/connection_adapters/sqlite_adapter.rb:372:in `catch_schema_changes'
+  activerecord (2.3.0) lib/active_record/connection_adapters/sqlite_adapter.rb:132:in `execute'
+  activerecord (2.3.0) lib/active_record/connection_adapters/sqlite_adapter.rb:275:in `select'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/database_statements.rb:7:in `select_all_without_query_cache'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:60:in `select_all'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:81:in `cache_sql'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:60:in `select_all'
+  activerecord (2.3.0) lib/active_record/base.rb:661:in `find_by_sql'
+  activerecord (2.3.0) lib/active_record/base.rb:1554:in `find_every'
+  activerecord (2.3.0) lib/active_record/base.rb:615:in `find'
+  app/controllers/votes_controller.rb:5:in `index'
+  actionpack (2.3.0) lib/action_controller/base.rb:1261:in `send'
+  actionpack (2.3.0) lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (113.4ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (13.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (12.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateVotes (20090401201754)
+  [4;36;1mSQL (22.3ms)[0m   [0;1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "chair" varchar(255), "vice" varchar(255), "secretary" varchar(255), "treasurer" varchar(255), "member_number" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (13.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090401201754')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("votes")[0m
+
+
+Processing VotesController#index (for 127.0.0.1 at 2009-04-01 15:18:45) [GET]
+  [4;36;1mVote Load (0.5ms)[0m   [0;1mSELECT * FROM "votes" [0m
+Rendering template within layouts/votes
+Rendering votes/index
+Completed in 20ms (View: 15, DB: 0) | 200 OK [http://localhost/votes]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:18:48) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:22:05) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 20ms (View: 14, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:22:14) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:24:03) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 23ms (View: 15, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:31:58) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 75ms (View: 12, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:32:13) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:32:37) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 18ms (View: 12, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:33:27) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:33:58) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/votes/new]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:40:35) [POST]
+  Parameters: {"vice"=>"David Weber", "commit"=>"Create", "vote"=>{"member_number"=>"80510449"}, "treasurer"=>"Alex Gilhuly", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8=", "secretary"=>"Stefan Penner", "chair"=>"Burke Libbey"}
+  [4;36;1mVote Exists (0.1ms)[0m   [0;1mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = '80510449') LIMIT 1[0m
+  [4;35;1mVote Create (0.5ms)[0m   [0mINSERT INTO "votes" ("vice", "created_at", "treasurer", "updated_at", "secretary", "chair", "member_number") VALUES(NULL, '2009-04-01 20:40:35', NULL, '2009-04-01 20:40:35', NULL, NULL, '80510449')[0m
+Redirected to #<Vote:0x2513b6c>
+Completed in 41ms (DB: 1) | 302 Found [http://localhost/votes]
+
+
+Processing VotesController#show (for 127.0.0.1 at 2009-04-01 15:40:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mVote Load (0.3ms)[0m   [0;1mSELECT * FROM "votes" WHERE ("votes"."id" = 1) [0m
+Rendering template within layouts/votes
+Rendering votes/show
+Completed in 15ms (View: 10, DB: 0) | 200 OK [http://localhost/votes/1]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:40:39) [POST]
+  Parameters: {"vice"=>"David Weber", "commit"=>"Create", "vote"=>{"member_number"=>"80510449"}, "treasurer"=>"Alex Gilhuly", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8=", "secretary"=>"Stefan Penner", "chair"=>"Burke Libbey"}
+  [4;35;1mVote Exists (0.2ms)[0m   [0mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = '80510449') LIMIT 1[0m
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 20ms (View: 10, DB: 0) | 200 OK [http://localhost/votes]
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-04-01 15:42:46) [POST]
+  Parameters: {"vice"=>"David Weber", "commit"=>"Create", "vote"=>{"member_number"=>"80510449"}, "treasurer"=>"Alex Gilhuly", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8=", "secretary"=>"Stefan Penner", "chair"=>"Burke Libbey"}
+
+SyntaxError (/Users/burke/src/voting/app/controllers/votes_controller.rb:43: syntax error, unexpected kEND, expecting $end):
+  activesupport (2.3.0) lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:380:in `load_file'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:521:in `new_constants_in'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:379:in `load_file'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:259:in `require_or_load'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:425:in `load_missing_constant'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:80:in `const_missing'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:92:in `const_missing'
+  activesupport (2.3.0) lib/active_support/inflector.rb:359:in `constantize'
+  activesupport (2.3.0) lib/active_support/inflector.rb:358:in `each'
+  activesupport (2.3.0) lib/active_support/inflector.rb:358:in `constantize'
+  activesupport (2.3.0) lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:439:in `recognize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:432:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (99.5ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2009-04-01 15:42:54) [POST]
+  Parameters: {"vice"=>"David Weber", "commit"=>"Create", "vote"=>{"member_number"=>"80510449"}, "treasurer"=>"Alex Gilhuly", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8=", "secretary"=>"Stefan Penner", "chair"=>"Burke Libbey"}
+
+SyntaxError (/Users/burke/src/voting/app/controllers/votes_controller.rb:43: syntax error, unexpected kEND, expecting $end):
+  activesupport (2.3.0) lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:380:in `load_file'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:521:in `new_constants_in'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:379:in `load_file'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:259:in `require_or_load'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:425:in `load_missing_constant'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:80:in `const_missing'
+  activesupport (2.3.0) lib/active_support/dependencies.rb:92:in `const_missing'
+  activesupport (2.3.0) lib/active_support/inflector.rb:359:in `constantize'
+  activesupport (2.3.0) lib/active_support/inflector.rb:358:in `each'
+  activesupport (2.3.0) lib/active_support/inflector.rb:358:in `constantize'
+  activesupport (2.3.0) lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:439:in `recognize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:432:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (28.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:43:07) [POST]
+  Parameters: {"vice"=>"David Weber", "commit"=>"Create", "vote"=>{"member_number"=>"80510449"}, "treasurer"=>"Alex Gilhuly", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8=", "secretary"=>"Stefan Penner", "chair"=>"Burke Libbey"}
+  [4;36;1mVote Exists (0.2ms)[0m   [0;1mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = '80510449') LIMIT 1[0m
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://localhost/votes]
+
+
+Processing VotesController#index (for 127.0.0.1 at 2009-04-01 15:43:49) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create, new, and show):
+  actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-01 15:44:13) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  actionpack (2.3.0) lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:437:in `recognize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:432:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:44:50) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:45:05) [POST]
+  Parameters: {"vice"=>"David Weber", "commit"=>"Create", "vote"=>{"member_number"=>"80510449"}, "treasurer"=>"Alex Gilhuly", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8=", "secretary"=>"Tim Herd", "chair"=>"Matt Sebastian"}
+  [4;35;1mVote Exists (0.2ms)[0m   [0mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = '80510449') LIMIT 1[0m
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 18ms (View: 8, DB: 0) | 200 OK [http://localhost/votes]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:45:09) [POST]
+  Parameters: {"commit"=>"Create", "vote"=>{"member_number"=>"80510440"}, "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8="}
+  [4;36;1mVote Exists (0.1ms)[0m   [0;1mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = '80510440') LIMIT 1[0m
+  [4;35;1mVote Create (0.4ms)[0m   [0mINSERT INTO "votes" ("vice", "created_at", "treasurer", "updated_at", "secretary", "chair", "member_number") VALUES(NULL, '2009-04-01 20:45:09', NULL, '2009-04-01 20:45:09', NULL, NULL, '80510440')[0m
+Redirected to #<Vote:0x242a8e0>
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/votes]
+
+
+Processing VotesController#show (for 127.0.0.1 at 2009-04-01 15:45:09) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mVote Load (0.2ms)[0m   [0;1mSELECT * FROM "votes" WHERE ("votes"."id" = 2) [0m
+Rendering template within layouts/votes
+Rendering votes/show
+Completed in 15ms (View: 9, DB: 0) | 200 OK [http://localhost/votes/2]
+
+
+Processing VotesController#index (for 127.0.0.1 at 2009-04-01 15:46:10) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create, new, and show):
+  actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:46:13) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 19ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:46:27) [POST]
+  Parameters: {"vote"=>{"vice"=>"David Weber", "treasurer"=>"Alex Gilhuly", "secretary"=>"Stefan Penner", "member_number"=>"80510442", "chair"=>"Burke Libbey"}, "commit"=>"Create", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8="}
+  [4;35;1mVote Exists (0.1ms)[0m   [0mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = '80510442') LIMIT 1[0m
+  [4;36;1mVote Create (0.4ms)[0m   [0;1mINSERT INTO "votes" ("vice", "created_at", "treasurer", "updated_at", "secretary", "chair", "member_number") VALUES('David Weber', '2009-04-01 20:46:27', 'Alex Gilhuly', '2009-04-01 20:46:27', 'Stefan Penner', 'Burke Libbey', '80510442')[0m
+Redirected to #<Vote:0x2695be8>
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/votes]
+
+
+Processing VotesController#show (for 127.0.0.1 at 2009-04-01 15:46:27) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mVote Load (0.2ms)[0m   [0mSELECT * FROM "votes" WHERE ("votes"."id" = 3) [0m
+Rendering template within layouts/votes
+Rendering votes/show
+Completed in 14ms (View: 9, DB: 0) | 200 OK [http://localhost/votes/3]
+
+
+Processing VotesController#show (for 127.0.0.1 at 2009-04-01 15:47:56) [GET]
+  Parameters: {"id"=>"3"}
+Rendering template within layouts/votes
+Rendering votes/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.chair) on line #3 of app/views/votes/show.html.erb:
+1: <p>
+2:   <b>Chair:</b>
+3:   <%=h @vote.chair %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/votes/show.html.erb:3
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `send'
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `render'
+    actionpack (2.3.0) lib/action_view/template.rb:182:in `render_template'
+    actionpack (2.3.0) lib/action_view/base.rb:247:in `render'
+    actionpack (2.3.0) lib/action_view/base.rb:318:in `_render_with_layout'
+    actionpack (2.3.0) lib/action_view/base.rb:244:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1180:in `render_for_file'
+    actionpack (2.3.0) lib/action_controller/base.rb:906:in `render_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1256:in `default_render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1268:in `perform_action_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+    actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+    actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+    actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+    actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+    rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+    rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+    rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (37.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VotesController#index (for 127.0.0.1 at 2009-04-01 15:48:04) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create and new):
+  actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing VotesController#index (for 127.0.0.1 at 2009-04-01 15:48:23) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create and new):
+  actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:48:30) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+
+ActionView::TemplateError (undefined method `votes_path' for #<ActionView::Base:0x2414090>) on line #3 of app/views/votes/new.html.erb:
+1: <h1>UM IEEE Voting</h1>
+2: 
+3: <% form_for(@vote) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `__send__'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `polymorphic_url'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:116:in `polymorphic_path'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:269:in `apply_form_for_options!'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:248:in `form_for'
+    app/views/votes/new.html.erb:3
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `send'
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `render'
+    actionpack (2.3.0) lib/action_view/template.rb:182:in `render_template'
+    actionpack (2.3.0) lib/action_view/base.rb:247:in `render'
+    actionpack (2.3.0) lib/action_view/base.rb:318:in `_render_with_layout'
+    actionpack (2.3.0) lib/action_view/base.rb:244:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1180:in `render_for_file'
+    actionpack (2.3.0) lib/action_controller/base.rb:906:in `render_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1256:in `default_render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1262:in `perform_action_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+    actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+    actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+    actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+    actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+    rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+    rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+    rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (112.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:48:43) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+
+ActionView::TemplateError (undefined method `votes_path' for #<ActionView::Base:0x268dfd8>) on line #3 of app/views/votes/new.html.erb:
+1: <h1>UM IEEE Voting</h1>
+2: 
+3: <% form_for(@vote) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `__send__'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `polymorphic_url'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:116:in `polymorphic_path'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:269:in `apply_form_for_options!'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:248:in `form_for'
+    app/views/votes/new.html.erb:3
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `send'
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `render'
+    actionpack (2.3.0) lib/action_view/template.rb:182:in `render_template'
+    actionpack (2.3.0) lib/action_view/base.rb:247:in `render'
+    actionpack (2.3.0) lib/action_view/base.rb:318:in `_render_with_layout'
+    actionpack (2.3.0) lib/action_view/base.rb:244:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1180:in `render_for_file'
+    actionpack (2.3.0) lib/action_controller/base.rb:906:in `render_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1256:in `default_render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1262:in `perform_action_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+    actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+    actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+    actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+    actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+    rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+    rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+    rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (40.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:49:07) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+
+ActionView::TemplateError (undefined method `votes_path' for #<ActionView::Base:0x2530e4c>) on line #3 of app/views/votes/new.html.erb:
+1: <h1>UM IEEE Voting</h1>
+2: 
+3: <% form_for(@vote) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `__send__'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `polymorphic_url'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:116:in `polymorphic_path'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:269:in `apply_form_for_options!'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:248:in `form_for'
+    app/views/votes/new.html.erb:3
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `send'
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `render'
+    actionpack (2.3.0) lib/action_view/template.rb:182:in `render_template'
+    actionpack (2.3.0) lib/action_view/base.rb:247:in `render'
+    actionpack (2.3.0) lib/action_view/base.rb:318:in `_render_with_layout'
+    actionpack (2.3.0) lib/action_view/base.rb:244:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1180:in `render_for_file'
+    actionpack (2.3.0) lib/action_controller/base.rb:906:in `render_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1256:in `default_render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1262:in `perform_action_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+    actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+    actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+    actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+    actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+    rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+    rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+    rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (115.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:50:19) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+
+ActionView::TemplateError (undefined method `error_messages' for #<String:0x26e5328>) on line #4 of app/views/votes/new.html.erb:
+1: <h1>UM IEEE Voting</h1>
+2: 
+3: <% form("vote") do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+7:     <%= f.label :chair %><br />
+
+    app/views/votes/new.html.erb:4
+    actionpack (2.3.0) lib/action_view/helpers/active_record_helper.rb:87:in `form'
+    app/views/votes/new.html.erb:3
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `send'
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `render'
+    actionpack (2.3.0) lib/action_view/template.rb:182:in `render_template'
+    actionpack (2.3.0) lib/action_view/base.rb:247:in `render'
+    actionpack (2.3.0) lib/action_view/base.rb:318:in `_render_with_layout'
+    actionpack (2.3.0) lib/action_view/base.rb:244:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1180:in `render_for_file'
+    actionpack (2.3.0) lib/action_controller/base.rb:906:in `render_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1256:in `default_render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1262:in `perform_action_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+    actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+    actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+    actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+    actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+    rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+    rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+    rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (41.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:50:44) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+
+ActionView::TemplateError (undefined method `votes_path' for #<ActionView::Base:0x246abc0>) on line #3 of app/views/votes/new.html.erb:
+1: <h1>UM IEEE Voting</h1>
+2: 
+3: <% form_for(@vote) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `__send__'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:109:in `polymorphic_url'
+    actionpack (2.3.0) lib/action_controller/polymorphic_routes.rb:116:in `polymorphic_path'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:269:in `apply_form_for_options!'
+    actionpack (2.3.0) lib/action_view/helpers/form_helper.rb:248:in `form_for'
+    app/views/votes/new.html.erb:3
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `send'
+    actionpack (2.3.0) lib/action_view/renderable.rb:35:in `render'
+    actionpack (2.3.0) lib/action_view/template.rb:182:in `render_template'
+    actionpack (2.3.0) lib/action_view/base.rb:247:in `render'
+    actionpack (2.3.0) lib/action_view/base.rb:318:in `_render_with_layout'
+    actionpack (2.3.0) lib/action_view/base.rb:244:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1180:in `render_for_file'
+    actionpack (2.3.0) lib/action_controller/base.rb:906:in `render_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:51:in `render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1256:in `default_render'
+    actionpack (2.3.0) lib/action_controller/base.rb:1262:in `perform_action_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+    actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+    actionpack (2.3.0) lib/action_controller/filters.rb:606:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+    actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+    actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+    activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+    activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+    actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+    actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+    actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+    actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+    rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+    rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+    rails (2.3.0) lib/commands/server.rb:100
+
+Rendered rescues/_trace (108.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing VotesController#new (for 127.0.0.1 at 2009-04-01 15:50:46) [GET]
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:50:56) [POST]
+  Parameters: {"vote"=>{"vice"=>"David Weber", "treasurer"=>"Alex Gilhuly", "secretary"=>"Stefan Penner", "member_number"=>"wert", "chair"=>"Burke Libbey"}, "commit"=>"Create", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8="}
+  [4;36;1mVote Exists (0.1ms)[0m   [0;1mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = 'wert') LIMIT 1[0m
+  [4;35;1mVote Create (0.3ms)[0m   [0mINSERT INTO "votes" ("vice", "created_at", "treasurer", "updated_at", "secretary", "chair", "member_number") VALUES('David Weber', '2009-04-01 20:50:56', 'Alex Gilhuly', '2009-04-01 20:50:56', 'Stefan Penner', 'Burke Libbey', 'wert')[0m
+Redirected to /success
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/votes]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-01 15:50:56) [GET]
+
+ActionController::RoutingError (No route matches "/success" with {:method=>:get}):
+  actionpack (2.3.0) lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:437:in `recognize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:432:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-01 15:51:40) [GET]
+
+ActionController::RoutingError (No route matches "/success" with {:method=>:get}):
+  actionpack (2.3.0) lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:437:in `recognize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:432:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-04-01 15:51:41) [GET]
+
+ActionController::RoutingError (No route matches "/success" with {:method=>:get}):
+  actionpack (2.3.0) lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:437:in `recognize'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:432:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:52:51) [POST]
+  Parameters: {"vote"=>{"vice"=>"David Weber", "treasurer"=>"Alex Gilhuly", "secretary"=>"Stefan Penner", "member_number"=>"wert", "chair"=>"Burke Libbey"}, "commit"=>"Create", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8="}
+  [4;36;1mVote Exists (0.2ms)[0m   [0;1mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = 'wert') LIMIT 1[0m
+Rendering template within layouts/votes
+Rendering votes/new
+Completed in 19ms (View: 9, DB: 0) | 200 OK [http://localhost/votes]
+
+
+Processing VotesController#create (for 127.0.0.1 at 2009-04-01 15:52:55) [POST]
+  Parameters: {"vote"=>{"vice"=>"David Weber", "treasurer"=>"Alex Gilhuly", "secretary"=>"Stefan Penner", "member_number"=>"werts", "chair"=>"Burke Libbey"}, "commit"=>"Create", "authenticity_token"=>"/rEYuOl3gWpd5aJJmGzYGFKQiHFpr97mzIljbb8HNQ8="}
+  [4;35;1mVote Exists (0.1ms)[0m   [0mSELECT "votes".id FROM "votes" WHERE ("votes"."member_number" = 'werts') LIMIT 1[0m
+  [4;36;1mVote Create (0.3ms)[0m   [0;1mINSERT INTO "votes" ("vice", "created_at", "treasurer", "updated_at", "secretary", "chair", "member_number") VALUES('David Weber', '2009-04-01 20:52:55', 'Alex Gilhuly', '2009-04-01 20:52:55', 'Stefan Penner', 'Burke Libbey', 'werts')[0m
+Redirected to /success
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/votes]
+
+
+Processing VotesController#success (for 127.0.0.1 at 2009-04-01 15:52:55) [GET]
+Rendering template within layouts/votes
+Rendering votes/success
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/success]

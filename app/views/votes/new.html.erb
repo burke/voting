@@ -1,0 +1,42 @@
+<h1>UM IEEE Voting</h1>
+
+<% form_for(@vote) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :chair %><br />
+    <%= f.radio_button :chair, 'Matt Sebastian' %> Matt Sebastian <br />
+    <%= f.radio_button :chair, 'Burke Libbey' %> Burke Libbey <br />
+    <%= f.radio_button :chair, 'decline' %>
+    <span style="color:#999;" >(decline) </span><br />
+  </p>
+  <p>
+    <%= f.label :vice %><br />
+    <%= f.radio_button :vice, 'David Weber' %> David Weber <br />
+    <%= f.radio_button :vice, 'decline' %> <span style="color:#999;"
+    >(decline) </span><br />
+  </p>
+  <p>
+    <%= f.label :secretary %><br />
+    <%= f.radio_button :secretary, 'Stefan Penner' %> Stefan Penner <br />
+    <%= f.radio_button :secretary, 'Tim Herd' %> Tim Herd <br />
+    <%= f.radio_button :secretary, 'decline' %>
+    <span style="color:#999;" >(decline) </span><br />
+  </p>
+  <p>
+    <%= f.label :treasurer %><br />
+    <%= f.radio_button :treasurer, 'Alex Gilhuly' %> Alex Gilhuly <br />
+    <%= f.radio_button :treasurer, 'decline' %>
+    <span style="color:#999;" >(decline) </span><br />
+  </p>
+  <p>
+    <%= f.label :member_number %><br />
+    <%= f.text_field :member_number %><br />
+    <span style="color:#999;font-size:11px;">(Sure, it's only partially anonymous, but nobody really cares how
+    you vote.)</span>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
